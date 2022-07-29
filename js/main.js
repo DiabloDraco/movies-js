@@ -1,4 +1,4 @@
-elMovies = movies.slice(0 , 50)
+elMovies = movies.slice(0 , 150)
 
 
 function normolize(array) {
@@ -17,7 +17,7 @@ function normolize(array) {
 
         newArray.push(newObject)
     });
-    
+
 
 
     return newArray
@@ -46,7 +46,7 @@ function renderMovies(array, wrapper) {
     }
 
     wrapper.appendChild(tempFragment)
-    
+
 }
 
 renderMovies(wArray, elMovieWrapper);
