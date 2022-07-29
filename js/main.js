@@ -26,10 +26,10 @@ function normolize(array) {
 let wArray = normolize(elMovies);
 let elMovieWrapper = document.querySelector(".movie__wrapper");
 let elTemplate = document.querySelector("#movie_card").content;
-
+let elReslut = document.querySelector("#results")
 function renderMovies(array, wrapper) {
     wrapper.innerHTML = null
-
+    elReslut.textContent = array.length
     let tempFragment = document.createDocumentFragment()
 
     for (const item of array) {
