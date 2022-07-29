@@ -1,0 +1,13 @@
+{
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded", // expanded || compressed
+            "extensionName": ".css",
+            "savePath": "/css"
+        }
+    ],
+
+    "ecsstractor_port.bem_nesting": true,
+    "ecsstractor_port.add_comment": false,
+    "git.ignoreLimitWarning": true
+}
