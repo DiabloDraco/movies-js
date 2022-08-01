@@ -7259,6 +7259,7 @@ textarea.form-control-lg {
 
 .overflow-hidden {
   overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 .overflow-visible {
