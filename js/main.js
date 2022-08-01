@@ -81,7 +81,7 @@ function categoriesRender(array) {
 }
 let elInput = Number(document.querySelector(".rate__value").value.trim())
 
-categoriesRender(allCategories)
+categoriesRender(allCategories.sort())
 
 elForm.addEventListener("submit" , (evt)=> {
     evt.preventDefault()
