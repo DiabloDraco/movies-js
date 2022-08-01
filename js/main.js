@@ -78,3 +78,19 @@ function categoriesRender(array) {
 }
 
 categoriesRender(allCategories)
+
+elSelect.addEventListener("input" , (evt)=> {
+    evt.preventDefault()
+
+    let selectedCategories = elSelect.value 
+
+    let filteredCategories = wArray.filter(function (item) {
+        return item.categories.includes(selectedCategories)
+    })
+
+    if (selectedCategories != "all") {
+        renderMovies(filteredCategories , elMovieWrapper)
+    }else {
+        renderMovies(wArray , elMovieWrapper)
+    }
+})
