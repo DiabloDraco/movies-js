@@ -1,6 +1,6 @@
-elMovies = movies.slice(0 , 150)
-elSelect = document.querySelector("#selects")
-
+let elMovies = movies.slice(0 , 150)
+let elSelect = document.querySelector("#selects")
+let elYear = Number(document.querySelector("#year").value.trim())
 let wArray = elMovies.map(item =>{
     return {
         title:item.Title.toString(),
@@ -45,9 +45,11 @@ let fArray = []
 elForm.addEventListener("submit" , function find(evt) {
     evt.preventDefault();
     let elInput = Number(document.querySelector(".rate__value").value.trim())
+    let elYear = Number(document.querySelector("#year").value.trim())
+    
     let FindedArray = []
     for (let i = 0; i < wArray.length; i++) {
-        if (elInput <= wArray[i].rating) {
+        if (elInput <= wArray[i].rating && elYear <= wArray[i].movieYear) {
             FindedArray.push(wArray[i])
         }
     }
@@ -81,11 +83,11 @@ let elInput = Number(document.querySelector(".rate__value").value.trim())
 
 categoriesRender(allCategories)
 
-elSelect.addEventListener("input" , (evt)=> {
+elForm.addEventListener("submit" , (evt)=> {
     evt.preventDefault()
     
     let selectedCategories = elSelect.value 
-    if (elInput !== "") {
+    if (elInput !== "" && elYear !== "") {
         let filteredCategories = fArray.filter(function (item) {
             return item.categories.includes(selectedCategories)
         })

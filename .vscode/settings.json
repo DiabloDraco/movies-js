@@ -9,5 +9,6 @@
 
     "ecsstractor_port.bem_nesting": true,
     "ecsstractor_port.add_comment": false,
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "liveServer.settings.port": 5501
 }
