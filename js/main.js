@@ -41,7 +41,7 @@ function renderMovies(array, wrapper) {
 renderMovies(wArray, elMovieWrapper);
 
 let elForm = document.querySelector("#form")
-
+let fArray = []
 elForm.addEventListener("submit" , function find(evt) {
     evt.preventDefault();
     let elInput = Number(document.querySelector(".rate__value").value.trim())
@@ -52,9 +52,9 @@ elForm.addEventListener("submit" , function find(evt) {
         }
     }
     renderMovies(FindedArray , elMovieWrapper)
-    return FindedArray 
+    fArray = FindedArray
+    console.log(fArray);
 })
-console.log(find(wArray));
 function getCategories(array) {
     let categoriesArray = []
     for (const item of array) {
@@ -77,25 +77,25 @@ function categoriesRender(array) {
         elSelect.appendChild(newOption)
     }
 }
+let elInput = Number(document.querySelector(".rate__value").value.trim())
 
 categoriesRender(allCategories)
 
-elSelect.addEventListener("input" , (item)=> {
+elSelect.addEventListener("input" , (evt)=> {
     evt.preventDefault()
     
     let selectedCategories = elSelect.value 
-    if (!FindedArray == null) { 
-        let filteredCategories = find(wArray).filter(function (item) {
+    if (elInput !== "") {
+        let filteredCategories = fArray.filter(function (item) {
             return item.categories.includes(selectedCategories)
         })
         
         if (selectedCategories != "all") {
             renderMovies(filteredCategories , elMovieWrapper)
         }else {
-            renderMovies(find(wArray) , elMovieWrapper)
+            renderMovies(wArray , elMovieWrapper)
         }
     }else {
-        
         let filteredCategories = wArray.filter(function (item) {
             return item.categories.includes(selectedCategories)
         })

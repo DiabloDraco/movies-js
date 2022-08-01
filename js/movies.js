@@ -741,19 +741,6 @@ var movies = [
     "ytid": "uxM6vsMNwXs"
   },
   {
-    "Title": "A Moving Romance",
-    "fulltitle": "A Moving Romance (2017)",
-    "movie_year": 2017,
-    "Categories": "Family",
-    "summary": "Interior designer Olivia Wilson loses her job in New York. With newfound time on her hands she decides to head home to California to surprise her dad, Neil for the 25th anniversary of the family business, Wilson Family Movers. Upon arrival she meets the newest member of the Wilson team, Scott. With business coming to a halt, she and Scott work together to get things back on track. Just as the two begin to form a bond, Olivia is faced with a difficult decision when a worthwhile job opportunity pops up back in New York.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/A-Moving-Romance-Movie-Poster.jpg",
-    "imdb_id": "tt5039242",
-    "imdb_rating": 6.1,
-    "runtime": 90,
-    "language": "English",
-    "ytid": ""
-  },
-  {
     "Title": "Happy End",
     "fulltitle": "Happy End (2017)",
     "movie_year": 2017,
