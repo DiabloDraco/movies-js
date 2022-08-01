@@ -26,32 +26,6 @@ var movies = [
     "ytid": "jwD04NsnLLg"
   },
   {
-    "Title": "Mickey's Magical Christmas: Snowed in at the House of Mouse",
-    "fulltitle": "Mickey's Magical Christmas: Snowed in at the House of Mouse (2001)",
-    "movie_year": 2001,
-    "Categories": "Adventure|Animation|Comedy|Family|Fantasy",
-    "summary": "After everyone is snowed in at the House of Mouse, Mickey suggests they throw their own Christmas party. Everyone is happy, except for Donald who just isn't in to the Christmas spirit. So Mickey shows a series of cartoons that show just what Christmas is all about. It features a star studded cast of Disney characters from everyone's favorite animated Disney movies.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Mickeys-Magical-Christmas-Snowed-in-at-the-House-of-Mouse-Movie-Poster.jpg",
-    "imdb_id": "tt0300195",
-    "imdb_rating": 6.8,
-    "runtime": 65,
-    "language": "English",
-    "ytid": "uCKwHHftrU4"
-  },
-  {
-    "Title": "Mickey's House of Villains",
-    "fulltitle": "Mickey's House of Villains (2001)",
-    "movie_year": 2001,
-    "Categories": "Animation|Comedy|Family|Fantasy|Horror",
-    "summary": "The villains from the popular animated Disney films are gathered at the House of Mouse with plans to take over. Soon, the villains take over the house and kick out Mickey, Donald and Goofy. It's all up to Mickey and his friends to overthrow evil and return the House of Mouse to normal--or as close to normal as it get's.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Mickeys-House-of-Villains-Movie-Poster.jpg",
-    "imdb_id": "tt0329374",
-    "imdb_rating": 6.6,
-    "runtime": 0,
-    "language": "English",
-    "ytid": "JA03ciYt-Ek"
-  },
-  {
     "Title": "And Then I Go",
     "fulltitle": "And Then I Go (2017)",
     "movie_year": 2017,
@@ -180,19 +154,6 @@ var movies = [
     "runtime": 0,
     "language": "English",
     "ytid": "eMVw1pHVMAw"
-  },
-  {
-    "Title": "Silent Night",
-    "fulltitle": "Silent Night (2017)",
-    "movie_year": 2017,
-    "Categories": "Comedy|Drama",
-    "summary": "Adam unexpectedly visits his family house at Christmas after a few years of working abroad. No family member knows about his secret plans and the real reasons of his visit.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Silent-Night-Movie-Poster.jpg",
-    "imdb_id": "tt7133554",
-    "imdb_rating": 7.5,
-    "runtime": 100,
-    "language": "English",
-    "ytid": "cA6BUYVkQoE"
   },
   {
     "Title": "Suicide Squad: Hell to Pay",
@@ -897,19 +858,6 @@ var movies = [
     "ytid": "Plr3V4TYBQE"
   },
   {
-    "Title": "The Coming Days",
-    "fulltitle": "The Coming Days (2010)",
-    "movie_year": 2010,
-    "Categories": "Drama|Sci-Fi",
-    "summary": "In the near future the dreams of three adult siblings living in Germany are fractured by difficult romantic relationships and the unwitting involvement with an underground organization through a growing worldwide panic over the few remaining oil fields in Asia.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/The-Coming-Days-Movie-Poster.jpg",
-    "imdb_id": "tt1545985",
-    "imdb_rating": 6.3,
-    "runtime": 125,
-    "language": "English",
-    "ytid": ""
-  },
-  {
     "Title": "Ichi the Killer",
     "fulltitle": "Ichi the Killer (2001)",
     "movie_year": 2001,
@@ -934,19 +882,6 @@ var movies = [
     "runtime": 90,
     "language": "English",
     "ytid": "RLEnTBG7ncQ"
-  },
-  {
-    "Title": "Small Town Crime",
-    "fulltitle": "Small Town Crime (2017)",
-    "movie_year": 2017,
-    "Categories": "Crime|Mystery|Thriller",
-    "summary": "An alcoholic ex-cop (Hawkes) finds the body of a young woman and, through an act of self-redemption, becomes hell-bent on finding the killer but unwittingly puts his family in danger and gets caught up with several dark characters along the way.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Small-Town-Crime-Movie-Poster.jpg",
-    "imdb_id": "tt5751998",
-    "imdb_rating": 6.6,
-    "runtime": 91,
-    "language": "English",
-    "ytid": "WakqZghIX_g"
   },
   {
     "Title": "Control",
@@ -1012,19 +947,6 @@ var movies = [
     "runtime": 132,
     "language": "English",
     "ytid": "KXHrCBkIxQQ"
-  },
-  {
-    "Title": "Chasing the Dragon",
-    "fulltitle": "Chasing the Dragon (2017)",
-    "movie_year": 2017,
-    "Categories": "Action|Biography|Crime|History",
-    "summary": "The year is 1963, an illegal immigrant named Ho (Donnie Yen) sneaks into British-ruled Hong Kong. Equipped with guts and combat skills, he plunges into the underground world getting into constant conflict with rivals. After many adversaries, the once good-natured man is physically crippled and turns into a monster more atrocious than all the most corrupted cops and ruthless drug dealers. Ho eventually emerges as the most powerful drug lord under the control of Chief Detective Sergeant, Lee Rock (Andy Lau). However, with the establishment of Independent Commission Against Corruption (ICAC) by the law enforcement in 1974, Rock is forced into premature retirement. But Ho still insists he would not be stopped as he determines to become the sole dictator of the drug empire.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Chasing-the-Dragon-Movie-Poster.jpg",
-    "imdb_id": "tt6015328",
-    "imdb_rating": 6.9,
-    "runtime": 128,
-    "language": "English",
-    "ytid": "Adj5dtSKF8U"
   },
   {
     "Title": "I Kill Giants",
@@ -1313,45 +1235,6 @@ var movies = [
     "ytid": "FOxhoVx6a8o"
   },
   {
-    "Title": "Iron Men",
-    "fulltitle": "Iron Men (2017)",
-    "movie_year": 2017,
-    "Categories": "Documentary",
-    "summary": "Behind the scenes and with the fans of West Ham United as they move to a new home after 112 years at Upton Park.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Iron-Men-Movie-Poster.jpg",
-    "imdb_id": "tt6440810",
-    "imdb_rating": 7.2,
-    "runtime": 75,
-    "language": "English",
-    "ytid": ""
-  },
-  {
-    "Title": "Fassbinder",
-    "fulltitle": "Fassbinder (2015)",
-    "movie_year": 2015,
-    "Categories": "Documentary",
-    "summary": "A film portrait of the influential Bavarian actor, director and screenwriter who publicly confessed his homosexuality.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Fassbinder-Movie-Poster.jpg",
-    "imdb_id": "tt4536540",
-    "imdb_rating": 6.6,
-    "runtime": 95,
-    "language": "English",
-    "ytid": ""
-  },
-  {
-    "Title": "Black Bread",
-    "fulltitle": "Black Bread (2010)",
-    "movie_year": 2010,
-    "Categories": "Crime|Drama",
-    "summary": "In the harsh post-war years' Catalan countryside, Andreu, a child that belongs to the losing side, finds the corpses of a man and his son in the forest. The authorities want his father to be made responsible of the deaths, but Andreu tries to help his father by finding out who truly killed them. In this search, Andreu develops a moral consciousness against a world of adults fed by lies. In order to survive, he betrays his own roots and ends up finding out the monster that lives within him.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Black-Bread-Movie-Poster.jpg",
-    "imdb_id": "tt1454523",
-    "imdb_rating": 7,
-    "runtime": 108,
-    "language": "English",
-    "ytid": "mn_gJ5Aly6c"
-  },
-  {
     "Title": "Won't Back Down",
     "fulltitle": "Won't Back Down (2012)",
     "movie_year": 2012,
@@ -1389,19 +1272,6 @@ var movies = [
     "runtime": 115,
     "language": "English",
     "ytid": "89OP78l9oF0"
-  },
-  {
-    "Title": "Takeshis'",
-    "fulltitle": "Takeshis' (2005)",
-    "movie_year": 2005,
-    "Categories": "Comedy|Drama|Fantasy",
-    "summary": "Beat Takeshi lives the busy and sometimes surreal life of a showbiz celebrity. One day he meets his blond lookalike named Kitano, a shy convenience store cashier, who, still an unknown actor, is waiting for his big break. After their paths cross, Kitano seems to begin hallucinating about becoming Beat.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Takeshis-Movie-Poster.jpg",
-    "imdb_id": "tt0478044",
-    "imdb_rating": 6.4,
-    "runtime": 108,
-    "language": "English",
-    "ytid": "esRWmVRGk9M"
   },
   {
     "Title": "The Nile Hilton Incident",
@@ -1454,19 +1324,6 @@ var movies = [
     "runtime": 120,
     "language": "English",
     "ytid": "QNNcl2mEHzQ"
-  },
-  {
-    "Title": "Love Per Square Foot",
-    "fulltitle": "Love Per Square Foot (2018)",
-    "movie_year": 2018,
-    "Categories": "Comedy|Romance",
-    "summary": "Love Per Sq Ft, is a feature film which deals with the very common predicaments that faces today's urban youth; finding a house and finding love. Through the course of this romantic comedy we see Sanjay Chaturvedi and Karina D'souza desperately seeking a house, but realizing the difference between 'ghar' and 'makaan'.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Love-Per-Square-Foot-Movie-Poster.jpg",
-    "imdb_id": "tt7853242",
-    "imdb_rating": 7.2,
-    "runtime": 133,
-    "language": "English",
-    "ytid": "sGIez5mIc0U"
   },
   {
     "Title": "Hotel Salvation",
@@ -1623,19 +1480,6 @@ var movies = [
     "runtime": 103,
     "language": "English",
     "ytid": "sw7RElt-SvE"
-  },
-  {
-    "Title": "Chasing Coral",
-    "fulltitle": "Chasing Coral (2017)",
-    "movie_year": 2017,
-    "Categories": "Documentary",
-    "summary": "Coral reefs around the world are vanishing at an unprecedented rate. A team of divers, photographers and scientists set out on a thrilling ocean adventure to discover why and to reveal the underwater mystery to the world.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Chasing-Coral-Movie-Poster.jpg",
-    "imdb_id": "tt6333054",
-    "imdb_rating": 8.1,
-    "runtime": 93,
-    "language": "English",
-    "ytid": "b6fHA9R2cKI"
   },
   {
     "Title": "Gaga: Five Foot Two",
@@ -1924,19 +1768,6 @@ var movies = [
     "ytid": "KU3G7EEFnwQ"
   },
   {
-    "Title": "The Great Vazquez",
-    "fulltitle": "The Great Vazquez (2010)",
-    "movie_year": 2010,
-    "Categories": "Biography|Comedy",
-    "summary": "Is it possible to live aside of the system, thinking only about the present and oneself? A feature film about Manuel Vázquez, the best comic book author in Barcelona during the sixties, but, mainly, a man with a very particular way of living his life.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/The-Great-Vazquez-Movie-Poster.jpg",
-    "imdb_id": "tt1525915",
-    "imdb_rating": 6.3,
-    "runtime": 106,
-    "language": "English",
-    "ytid": ""
-  },
-  {
     "Title": "The Body",
     "fulltitle": "The Body (2012)",
     "movie_year": 2012,
@@ -1961,19 +1792,6 @@ var movies = [
     "runtime": 106,
     "language": "English",
     "ytid": "Q8-oU2Fb5ro"
-  },
-  {
-    "Title": "The Square",
-    "fulltitle": "The Square (2017)",
-    "movie_year": 2017,
-    "Categories": "Comedy|Drama",
-    "summary": "Christian is the respected curator of a contemporary art museum, a divorced but devoted father of two who drives an electric car and supports good causes. His next show is \"The Square\", an installation which invites passersby to altruism, reminding them of their role as responsible fellow human beings. But sometimes, it is difficult to live up to your own ideals: Christian's foolish response to the theft of his phone drags him into shameful situations. Meanwhile, the museum's PR agency has created an unexpected campaign for \"The Square\". The response is overblown and sends Christian, as well as the museum, into an existential crisis.",
-    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/The-Square-Movie-Poster.jpg",
-    "imdb_id": "tt4995790",
-    "imdb_rating": 7.4,
-    "runtime": 151,
-    "language": "English",
-    "ytid": "zKDPrpJEGBY"
   },
   {
     "Title": "Forgotten",
