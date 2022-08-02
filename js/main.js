@@ -95,17 +95,17 @@ elForm.addEventListener("submit" , (evt)=> {
         if (selectedCategories != "all") {
             renderMovies(filteredCategories , elMovieWrapper)
         }else {
-            renderMovies(wArray , elMovieWrapper)
+            renderMovies(fArray , elMovieWrapper)
         }
     }else {
-        let filteredCategories = wArray.filter(function (item) {
-            return item.categories.includes(selectedCategories)
+        let filteredCategories = fArray.filter(function (item) {
+            return item.categories.includes(allCategories)
         })
         
         if (selectedCategories != "all") {
             renderMovies(filteredCategories , elMovieWrapper)
         }else {
-            renderMovies(wArray , elMovieWrapper)
+            renderMovies(fArray , elMovieWrapper)
         }
     }
 })
