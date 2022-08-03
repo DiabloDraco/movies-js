@@ -10,7 +10,6 @@ let thirdPage = document.querySelector("#third")
 let fourthPage = document.querySelector("#fourth")
 
 
-
 // Normalize array
 
 let newArray = elMovies.map((item)=> {
@@ -43,8 +42,9 @@ function render(array , wrapper) {
     }
     wrapper.appendChild(fragment)
 }
+let homePage = newArray.slice(0 , 10)
 
-render(newArray.slice(0 , 10) , elWrapper)
+render(homePage , elWrapper)
 
 
 // Find categories
