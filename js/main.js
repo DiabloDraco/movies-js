@@ -1,4 +1,4 @@
-let elMovies = movies.slice(0 , 10);
+let elMovies = movies.slice(0 , 40);
 let elForm = document.querySelector("#form")
 let elWrapper = document.querySelector(".movie__wrapper")
 let elResult = document.querySelector("#results")
@@ -44,7 +44,7 @@ function render(array , wrapper) {
     wrapper.appendChild(fragment)
 }
 
-render(newArray , elWrapper)
+render(newArray.slice(0 , 10) , elWrapper)
 
 
 // Find categories
@@ -137,22 +137,13 @@ elForm.addEventListener("submit" , (evt)=>{
 // Page layout
 firstPage.addEventListener("click" ,()=> {
 
-    elMovies = movies.slice(0 , 10);
+    elMovies = newArray.slice(0 , 10);
     firstPage.classList.add("active")
     secondPage.classList.remove("active")
     fourthPage.classList.remove("active")
     thirdPage.classList.remove("active")
-    let newArray = elMovies.map((item)=> {
-        return {
-            title:item.Title.toString(),
-            categories:item.Categories.split("|"),
-            image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
-            movieYear:item.movie_year,
-            videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
-            rating:item.imdb_rating
-        }
-    })
-    render(newArray , elWrapper)
+
+    render(elMovies , elWrapper)
 })
 
 secondPage.addEventListener("click" ,()=> {
@@ -161,18 +152,8 @@ secondPage.addEventListener("click" ,()=> {
     secondPage.classList.add("active")
     fourthPage.classList.remove("active")
     thirdPage.classList.remove("active")
-    elMovies = movies.slice(10 , 20);
-    let newArray = elMovies.map((item)=> {
-        return {
-            title:item.Title.toString(),
-            categories:item.Categories.split("|"),
-            image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
-            movieYear:item.movie_year,
-            videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
-            rating:item.imdb_rating
-        }
-    })
-    render(newArray , elWrapper)
+    elMovies = newArray.slice(10 , 20); 
+    render(elMovies , elWrapper)
 })
 
 thirdPage.addEventListener("click" ,()=> {
@@ -181,18 +162,8 @@ thirdPage.addEventListener("click" ,()=> {
     secondPage.classList.remove("active")
     fourthPage.classList.remove("active")
     thirdPage.classList.add("active")
-    elMovies = movies.slice(20 , 30);
-    let newArray = elMovies.map((item)=> {
-        return {
-            title:item.Title.toString(),
-            categories:item.Categories.split("|"),
-            image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
-            movieYear:item.movie_year,
-            videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
-            rating:item.imdb_rating
-        }
-    })
-    render(newArray , elWrapper)
+    elMovies = newArray.slice(20 , 30);
+    render(elMovies , elWrapper)
 })
 
 fourthPage.addEventListener("click" ,()=> {
@@ -201,16 +172,6 @@ fourthPage.addEventListener("click" ,()=> {
     secondPage.classList.remove("active")
     fourthPage.classList.add("active")
     thirdPage.classList.remove("active")
-    elMovies = movies.slice(30 , 40);
-    let newArray = elMovies.map((item)=> {
-        return {
-            title:item.Title.toString(),
-            categories:item.Categories.split("|"),
-            image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
-            movieYear:item.movie_year,
-            videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
-            rating:item.imdb_rating
-        }
-    })
-    render(newArray , elWrapper)
+    elMovies = newArray.slice(30 , 40);
+    render(elMovies , elWrapper)
 })
