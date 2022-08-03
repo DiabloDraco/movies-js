@@ -89,10 +89,11 @@ elForm.addEventListener("submit" , (evt)=>{
     let elYear = document.querySelector(".year__value").value.trim()
     let selectValue = document.querySelector("#selects").value.trim()
     let elSort = document.querySelector(".movie__sort").value
+    let elname = document.querySelector(".name__value").value.trim()
 
     let filteredArray = newArray.filter(function(item) {
         let isTrue = selectValue == "all" ? true : item.categories.includes(selectValue);
-        let validate = item.rating >= elRating && item.movieYear >= elYear && isTrue
+        let validate = item.rating >= elRating && item.movieYear >= elYear && isTrue && item.title.search(elname) != -1
         return validate
     })
 
