@@ -42,10 +42,8 @@ function render(array , wrapper) {
     }
     wrapper.appendChild(fragment)
 }
-let homePage = newArray.slice(0 , 10)
 
-render(homePage , elWrapper)
-
+render(newArray , elWrapper)
 
 // Find categories
 
