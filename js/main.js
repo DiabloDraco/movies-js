@@ -117,6 +117,18 @@ elForm.addEventListener("submit" , (evt)=>{
         })
     }
 
+    if (elSort == "az") {
+        filteredArray.sort((a , b)=> {
+            return a === b ? 0 : (a.title < b.title) ? -1 : 1;
+        })
+    }
+
+    if (elSort == "za") {
+        filteredArray.sort((a , b)=> {
+            return a === b ? 0 : (b.title < a.title) ? -1 : 1;
+        })
+    }
+
     render(filteredArray , elWrapper)
 
 })
