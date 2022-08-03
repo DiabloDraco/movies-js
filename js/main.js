@@ -1,4 +1,4 @@
-let elMovies = movies.slice(0 , 40);
+let elMovies = movies.slice(0 , 100);
 let elForm = document.querySelector("#form")
 let elWrapper = document.querySelector(".movie__wrapper")
 let elResult = document.querySelector("#results")
@@ -81,22 +81,22 @@ renderCategories(findedCategories , elSelect)
 
 
 // Filter Array
-
+let ar = []
 elForm.addEventListener("submit" , (evt)=>{
     evt.preventDefault()
-
+    
     let elRating = document.querySelector(".rate__value").value.trim()
     let elYear = document.querySelector(".year__value").value.trim()
     let selectValue = document.querySelector("#selects").value.trim()
     let elSort = document.querySelector(".movie__sort").value
     let elname = document.querySelector(".name__value").value.trim()
-
+    
     let filteredArray = newArray.filter(function(item) {
         let isTrue = selectValue == "all" ? true : item.categories.includes(selectValue);
         let validate = item.rating >= elRating && item.movieYear >= elYear && isTrue && item.title.search(elname) != -1
         return validate
     })
-
+    
     if (elSort == "ratinHighToLow") {
         filteredArray.sort((a , b)=> {
             return b.rating - a.rating
@@ -104,7 +104,7 @@ elForm.addEventListener("submit" , (evt)=>{
     }
     if (elSort == "ratingLowToHigh") {
         filteredArray.sort((a , b)=> {
-           return a.rating - b.rating 
+            return a.rating - b.rating 
         })
     }
     if (elSort == "yearHighToLow") {
@@ -117,61 +117,107 @@ elForm.addEventListener("submit" , (evt)=>{
             return a.movieYear - b.movieYear
         })
     }
-
+    
     if (elSort == "az") {
         filteredArray.sort((a , b)=> {
             return a === b ? 0 : (a.title < b.title) ? -1 : 1;
         })
     }
-
+    
     if (elSort == "za") {
         filteredArray.sort((a , b)=> {
             return a === b ? 0 : (b.title < a.title) ? -1 : 1;
         })
     }
-
-    render(filteredArray , elWrapper)
-
+    
+    render(filteredArray.slice(0 , 10) , elWrapper)
+    ar = filteredArray
 })
 
-// Page layout
-firstPage.addEventListener("click" ,()=> {
 
-    elMovies = newArray.slice(0 , 10);
-    firstPage.classList.add("active")
-    secondPage.classList.remove("active")
-    fourthPage.classList.remove("active")
-    thirdPage.classList.remove("active")
-
-    render(elMovies , elWrapper)
-})
-
-secondPage.addEventListener("click" ,()=> {
-
-    firstPage.classList.remove("active")
-    secondPage.classList.add("active")
-    fourthPage.classList.remove("active")
-    thirdPage.classList.remove("active")
-    elMovies = newArray.slice(10 , 20); 
-    render(elMovies , elWrapper)
-})
-
-thirdPage.addEventListener("click" ,()=> {
-
-    firstPage.classList.remove("active")
-    secondPage.classList.remove("active")
-    fourthPage.classList.remove("active")
-    thirdPage.classList.add("active")
-    elMovies = newArray.slice(20 , 30);
-    render(elMovies , elWrapper)
-})
-
-fourthPage.addEventListener("click" ,()=> {
-
-    firstPage.classList.remove("active")
-    secondPage.classList.remove("active")
-    fourthPage.classList.add("active")
-    thirdPage.classList.remove("active")
-    elMovies = newArray.slice(30 , 40);
-    render(elMovies , elWrapper)
-})
+if (ar != []) {
+    // Page layout
+    firstPage.addEventListener("click" ,()=> {
+        
+        filteredArray = ar.slice(0 , 10);
+        firstPage.classList.add("active")
+        secondPage.classList.remove("active")
+        fourthPage.classList.remove("active")
+        thirdPage.classList.remove("active")
+        
+        render(filteredArray , elWrapper)
+    })
+    
+    secondPage.addEventListener("click" ,()=> {
+        
+        firstPage.classList.remove("active")
+        secondPage.classList.add("active")
+        fourthPage.classList.remove("active")
+        thirdPage.classList.remove("active")
+        filteredArray = ar.slice(10 , 20); 
+        render(filteredArray , elWrapper)
+    })
+    
+    thirdPage.addEventListener("click" ,()=> {
+        
+        firstPage.classList.remove("active")
+        secondPage.classList.remove("active")
+        fourthPage.classList.remove("active")
+        thirdPage.classList.add("active")
+        filteredArray = ar.slice(20 , 30);
+        render(filteredArray , elWrapper)
+    })
+    
+    fourthPage.addEventListener("click" ,()=> {
+        
+        firstPage.classList.remove("active")
+        secondPage.classList.remove("active")
+        fourthPage.classList.add("active")
+        thirdPage.classList.remove("active")
+        filteredArray = ar.slice(30 , 40);
+        render(filteredArray , elWrapper)
+    })
+}
+else {
+    // Page layout
+    firstPage.addEventListener("click" ,()=> {
+        
+        elMovies = newArray.slice(0 , 10);
+        firstPage.classList.add("active")
+        secondPage.classList.remove("active")
+        fourthPage.classList.remove("active")
+        thirdPage.classList.remove("active")
+        
+        render(elMovies , elWrapper)
+    })
+    
+    secondPage.addEventListener("click" ,()=> {
+        
+        firstPage.classList.remove("active")
+        secondPage.classList.add("active")
+        fourthPage.classList.remove("active")
+        thirdPage.classList.remove("active")
+        elMovies = newArray.slice(10 , 20); 
+        render(elMovies , elWrapper)
+    })
+    
+    thirdPage.addEventListener("click" ,()=> {
+        
+        firstPage.classList.remove("active")
+        secondPage.classList.remove("active")
+        fourthPage.classList.remove("active")
+        thirdPage.classList.add("active")
+        elMovies = newArray.slice(20 , 30);
+        render(elMovies , elWrapper)
+    })
+    
+    fourthPage.addEventListener("click" ,()=> {
+        
+        firstPage.classList.remove("active")
+        secondPage.classList.remove("active")
+        fourthPage.classList.add("active")
+        thirdPage.classList.remove("active")
+        elMovies = newArray.slice(30 , 40);
+        render(elMovies , elWrapper)
+    })
+}
