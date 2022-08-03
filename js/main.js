@@ -1,63 +1,55 @@
-let elMovies = movies.slice(0 , 150)
+let elMovies = movies.slice(0 , 10);
+let elForm = document.querySelector("#form")
+let elWrapper = document.querySelector(".movie__wrapper")
+let elResult = document.querySelector("#results")
 let elSelect = document.querySelector("#selects")
-let elYear = Number(document.querySelector("#year").value.trim())
-let wArray = elMovies.map(item =>{
+let elTemplate = document.querySelector("#movie_card").content
+let firstPage = document.querySelector("#first")
+let secondPage = document.querySelector("#second")
+let thirdPage = document.querySelector("#third")
+let fourthPage = document.querySelector("#fourth")
+
+
+
+// Normalize array
+
+let newArray = elMovies.map((item)=> {
     return {
         title:item.Title.toString(),
-        videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
         categories:item.Categories.split("|"),
+        image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
         movieYear:item.movie_year,
-        rating:item.imdb_rating,
-        image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`
+        videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
+        rating:item.imdb_rating
     }
 })
 
-let elMovieWrapper = document.querySelector(".movie__wrapper");
-let elTemplate = document.querySelector("#movie_card").content;
-let elReslut = document.querySelector("#results")
-function renderMovies(array, wrapper) {
-    wrapper.innerHTML = null
-    elReslut.textContent = array.length
-    let tempFragment = document.createDocumentFragment()
-    
+
+// Render array
+
+function render(array , wrapper) {
+    elWrapper.textContent = null
+    elResult.textContent = array.length
+    let fragment = document.createDocumentFragment()
     for (const item of array) {
-        let templateItem = elTemplate.cloneNode(true)
-        
-        templateItem.querySelector(".movie__img").src = item.image;
-        templateItem.querySelector(".movie__title").textContent = item.title;
-        templateItem.querySelector(".movie__year").textContent = item.movieYear;
-        templateItem.querySelector(".movie__rating").textContent = item.rating;
-        templateItem.querySelector(".movie__url").href = item.videoUrl;
-        templateItem.querySelector("#categories").textContent = item.categories;
-        
-        
-        tempFragment.appendChild(templateItem)
+        let template = elTemplate.cloneNode(true)
+        template.querySelector(".movie__img").src = item.image
+        template.querySelector(".movie__title").textContent = item.title
+        template.querySelector(".movie__year").textContent = item.movieYear
+        template.querySelector("#categories").textContent = item.categories
+        template.querySelector(".movie__rating").textContent = item.rating
+        template.querySelector(".movie__url").href = item.videoUrl
+        fragment.appendChild(template)
     }
-    
-    wrapper.appendChild(tempFragment)
-    
+    wrapper.appendChild(fragment)
 }
 
-renderMovies(wArray, elMovieWrapper);
+render(newArray , elWrapper)
 
-let elForm = document.querySelector("#form")
-let fArray = []
-elForm.addEventListener("submit" , function find(evt) {
-    evt.preventDefault();
-    let elInput = Number(document.querySelector(".rate__value").value.trim())
-    let elYear = Number(document.querySelector("#year").value.trim())
-    
-    let FindedArray = []
-    for (let i = 0; i < wArray.length; i++) {
-        if (elInput <= wArray[i].rating && elYear <= wArray[i].movieYear) {
-            FindedArray.push(wArray[i])
-        }
-    }
-    renderMovies(FindedArray , elMovieWrapper)
-    fArray = FindedArray
-    console.log(fArray);
-})
-function getCategories(array) {
+
+// Find categories
+
+function findCategories(array) {
     let categoriesArray = []
     for (const item of array) {
         for (const itemCategories of item.categories) {
@@ -69,43 +61,143 @@ function getCategories(array) {
     return categoriesArray
 }
 
-let allCategories = getCategories(wArray)
+let findedCategories = findCategories(newArray).sort()
 
-function categoriesRender(array) {
+
+// Render Categories 
+
+function renderCategories(array , wrapper) {
+    let fragment = document.createDocumentFragment()
     for (let i = 0; i < array.length; i++) {
         let newOption = document.createElement("option")
         newOption.value = array[i]
         newOption.textContent = array[i]
-        elSelect.appendChild(newOption)
+        fragment.appendChild(newOption)
     }
+    wrapper.appendChild(fragment)
 }
-let elInput = Number(document.querySelector(".rate__value").value.trim())
 
-categoriesRender(allCategories.sort())
+renderCategories(findedCategories , elSelect)
 
-elForm.addEventListener("submit" , (evt)=> {
+
+// Filter Array
+
+elForm.addEventListener("submit" , (evt)=>{
     evt.preventDefault()
-    
-    let selectedCategories = elSelect.value 
-    if (elInput !== "" && elYear !== "") {
-        let filteredCategories = fArray.filter(function (item) {
-            return item.categories.includes(selectedCategories)
+
+    let elRating = document.querySelector(".rate__value").value.trim()
+    let elYear = document.querySelector(".year__value").value.trim()
+    let selectValue = document.querySelector("#selects").value.trim()
+    let elSort = document.querySelector(".movie__sort").value
+
+    let filteredArray = newArray.filter(function(item) {
+        let isTrue = selectValue == "all" ? true : item.categories.includes(selectValue);
+        let validate = item.rating >= elRating && item.movieYear >= elYear && isTrue
+        return validate
+    })
+
+    if (elSort == "ratinHighToLow") {
+        filteredArray.sort((a , b)=> {
+            return b.rating - a.rating
         })
-        
-        if (selectedCategories != "all") {
-            renderMovies(filteredCategories , elMovieWrapper)
-        }else {
-            renderMovies(fArray , elMovieWrapper)
-        }
-    }else {
-        let filteredCategories = fArray.filter(function (item) {
-            return item.categories.includes(allCategories)
-        })
-        
-        if (selectedCategories != "all") {
-            renderMovies(filteredCategories , elMovieWrapper)
-        }else {
-            renderMovies(fArray , elMovieWrapper)
-        }
     }
+    if (elSort == "ratingLowToHigh") {
+        filteredArray.sort((a , b)=> {
+           return a.rating - b.rating 
+        })
+    }
+    if (elSort == "yearHighToLow") {
+        filteredArray.sort((a , b)=> {
+            return b.movieYear - a.movieYear
+        })
+    }
+    if (elSort == "yearLowToHigh") {
+        filteredArray.sort((a , b)=> {
+            return a.movieYear - b.movieYear
+        })
+    }
+
+    render(filteredArray , elWrapper)
+
+})
+
+// Page layout
+firstPage.addEventListener("click" ,()=> {
+
+    elMovies = movies.slice(0 , 10);
+    firstPage.classList.add("active")
+    secondPage.classList.remove("active")
+    fourthPage.classList.remove("active")
+    thirdPage.classList.remove("active")
+    let newArray = elMovies.map((item)=> {
+        return {
+            title:item.Title.toString(),
+            categories:item.Categories.split("|"),
+            image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
+            movieYear:item.movie_year,
+            videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
+            rating:item.imdb_rating
+        }
+    })
+    render(newArray , elWrapper)
+})
+
+secondPage.addEventListener("click" ,()=> {
+
+    firstPage.classList.remove("active")
+    secondPage.classList.add("active")
+    fourthPage.classList.remove("active")
+    thirdPage.classList.remove("active")
+    elMovies = movies.slice(10 , 20);
+    let newArray = elMovies.map((item)=> {
+        return {
+            title:item.Title.toString(),
+            categories:item.Categories.split("|"),
+            image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
+            movieYear:item.movie_year,
+            videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
+            rating:item.imdb_rating
+        }
+    })
+    render(newArray , elWrapper)
+})
+
+thirdPage.addEventListener("click" ,()=> {
+
+    firstPage.classList.remove("active")
+    secondPage.classList.remove("active")
+    fourthPage.classList.remove("active")
+    thirdPage.classList.add("active")
+    elMovies = movies.slice(20 , 30);
+    let newArray = elMovies.map((item)=> {
+        return {
+            title:item.Title.toString(),
+            categories:item.Categories.split("|"),
+            image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
+            movieYear:item.movie_year,
+            videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
+            rating:item.imdb_rating
+        }
+    })
+    render(newArray , elWrapper)
+})
+
+fourthPage.addEventListener("click" ,()=> {
+
+    firstPage.classList.remove("active")
+    secondPage.classList.remove("active")
+    fourthPage.classList.add("active")
+    thirdPage.classList.remove("active")
+    elMovies = movies.slice(30 , 40);
+    let newArray = elMovies.map((item)=> {
+        return {
+            title:item.Title.toString(),
+            categories:item.Categories.split("|"),
+            image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
+            movieYear:item.movie_year,
+            videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
+            rating:item.imdb_rating
+        }
+    })
+    render(newArray , elWrapper)
 })

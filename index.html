@@ -24,19 +24,19 @@
 						<div class="col-12 col-lg-4 d-flex flex-column justify-content-center justify-content-lg-start pe-lg-5 mb-3 mb-lg-0">
 							<form id="form" class="d-flex flex-column gap-3 mb-4" action="echo.htmlacademy.ru/courses">
 								<input class="form-control" type="text" placeholder="name">
-								<input class="form-control" id="year" type="number" min="1900" step="1" max="2022" placeholder="year">
-								<input class="form-control rate__value" type="number" min="0" max="10" step="0.2" placeholder="rating">
+								<input class="form-control year__value" type="text" min="1900" max="2020" placeholder="year">
+								<input class="form-control rate__value" type="text" min="0" max="10" placeholder="rating">
 								<div class="input-group">
 									<select class="form-select" id="selects">
 										<option value="all" selected>All</option>
 									</select>
 								</div>
 								<div class="input-group">
-									<select class="form-select" id="inputGroupSelect01">
-										<option selected>Rating (high to low)</option>
-										<option value="1">high</option>
-										<option value="2">middle</option>
-										<option value="3">low</option>
+									<select class="form-select movie__sort" name="sort" id="inputGroupSelect01">
+										<option value="ratinHighToLow" selected>Rating (high to low)</option>
+										<option value="ratingLowToHigh">Rating (low to high)</option>
+										<option value="yearHighToLow">Year (high to low)</option>
+										<option value="yearLowToHigh">Year (low to high)</option>
 									</select>
 								</div>
 								<button class="btn bg-primary text-white">Search</button>
@@ -58,13 +58,14 @@
 								Use the form on the left  to search for movie
 							</div>
 							<div class="row movie__wrapper d-flex flex-column flex-lg-row">
-								<div class="btn-toolbar mb-3 d-flex flex-column align-items-center mt-5" role="toolbar" aria-label="Toolbar with button groups">
-									<div class="btn-group me-2" role="group" aria-label="First group">
-										<button type="button" class="btn btn-outline-primary active">1</button>
-										<button type="button" class="btn btn-outline-primary">2</button>
-										<button type="button" class="btn btn-outline-primary">3</button>
-										<button type="button" class="btn btn-outline-primary">4</button>
-									</div>
+
+							</div>
+							<div class="btn-toolbar mb-3 d-flex flex-column align-items-center mt-5" role="toolbar" aria-label="Toolbar with button groups">
+								<div class="btn-group me-2 " role="group"aria-label="First group">
+									<button id="first" class="btn btn-outline-primary active	">1</button>
+									<button id="second" class="btn btn-outline-primary">2</button>
+									<button id="third" type="button" class="btn btn-outline-primary">3</button>
+									<button id="fourth" type="button" class="btn btn-outline-primary">4</button>
 								</div>
 							</div>
 						</div>
