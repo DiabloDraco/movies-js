@@ -14,12 +14,14 @@ let fourthPage = document.querySelector("#fourth")
 
 let newArray = elMovies.map((item)=> {
     return {
+        id:item.imdb_id,
         title:item.Title.toString(),
         categories:item.Categories.split("|"),
         image:`https://i.ytimg.com/vi/${item.ytid}/mqdefault.jpg`,
         movieYear:item.movie_year,
         videoUrl:`https://www.youtube.com/watch?v=${item.ytid}`,
-        rating:item.imdb_rating
+        rating:item.imdb_rating,
+        info:item.summary.toString()
     }
 })
 
@@ -38,6 +40,7 @@ function render(array , wrapper) {
         template.querySelector("#categories").textContent = item.categories
         template.querySelector(".movie__rating").textContent = item.rating
         template.querySelector(".movie__url").href = item.videoUrl
+        template.querySelector(".more__info").dataset.movieId = item.id
         fragment.appendChild(template)
     }
     wrapper.appendChild(fragment)
@@ -219,3 +222,18 @@ else {
         render(elMovies , elWrapper)
     })
 }
+
+
+elWrapper.addEventListener("click" , (event) => {
+    let currentCard = event.target.dataset.movieId
+    if (currentCard) {
+        
+        let elModalTitle = document.querySelector(".modal__title")
+        let elModalDesc = document.querySelector(".modal__desc")
+        let findedObject = newArray.find(function findedObject(item) {
+            return item.id = currentCard
+        })
+        elModalTitle.textContent = `${findedObject.title}`
+        elModalDesc.textContent = `${findedObject.info}`
+    }
+})
