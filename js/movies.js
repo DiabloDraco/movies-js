@@ -65,6 +65,19 @@ var movies = [
     "ytid": "7Pa_Weidt08"
   },
   {
+    "Title": "Mirmuhsin Mirahmatov",
+    "fulltitle": "Re: Born (2016)",
+    "movie_year": 2003,
+    "Categories": "Genius",
+    "summary": "Giga Genius",
+    "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Re-Born-Movie-Poster.jpg",
+    "imdb_id": "tt56781111",
+    "imdb_rating": 10,
+    "runtime": 115,
+    "language": "English",
+    "ytid": "RyKZslyG8aU"
+  },
+  {
     "Title": "Love Songs",
     "fulltitle": "Love Songs (2007)",
     "movie_year": 2007,
