@@ -1,0 +1,22 @@
+.left__side {
+    top: 150px;
+}
+
+.right__side {
+    margin-left: 30%;
+    margin-top: -600px;
+}
+
+.bookmarked__movies {
+    overflow: scroll;
+    height: 200px;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .right__side {
+        margin-left: 0;
+        padding-top: 0;
+        margin-top: 0;
+    }
+}

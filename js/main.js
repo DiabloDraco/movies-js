@@ -8,7 +8,9 @@ let firstPage = document.querySelector("#first")
 let secondPage = document.querySelector("#second")
 let thirdPage = document.querySelector("#third")
 let fourthPage = document.querySelector("#fourth")
-
+let elBookmark = document.querySelector("#bookmark__template").content
+let bookmarkWrapper = document.querySelector(".bookmarked__movies")
+let elBookmarkButton = document.querySelector(".bookmark")
 
 // Normalize array
 
@@ -41,6 +43,7 @@ function render(array , wrapper) {
         template.querySelector(".movie__rating").textContent = item.rating
         template.querySelector(".movie__url").href = item.videoUrl
         template.querySelector(".more__info").dataset.movieId = item.id
+        template.querySelector(".bookmark").dataset.bookmarkId = item.id
         fragment.appendChild(template)
     }
     wrapper.appendChild(fragment)
@@ -226,8 +229,8 @@ else {
 
 elWrapper.addEventListener("click" , (event) => {
     let currentCard = event.target.dataset.movieId
+    let currentBookmark = event.target.dataset.bookmarkId
     if (currentCard) {
-        console.log(currentCard);
         let elModalTitle = document.querySelector(".modal__title")
         let elModalDesc = document.querySelector(".modal__desc")
         let findedObject = newArray.find(function findedObject(item) {
@@ -235,5 +238,15 @@ elWrapper.addEventListener("click" , (event) => {
         })
         elModalTitle.textContent = findedObject.title
         elModalDesc.textContent = findedObject.info
+    }
+    if (currentBookmark) {
+        let findedObject = newArray.find(function findedObject(item) {
+            return item.id == currentBookmark
+        })
+        let template = elBookmark.cloneNode(true)
+        let findTitle = findedObject.title
+        template.querySelector(".bookmark__title").textContent = `${findTitle}`
+        bookmarkWrapper.appendChild(template)
+        
     }
 })

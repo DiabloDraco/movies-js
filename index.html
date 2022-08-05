@@ -23,10 +23,10 @@
 				</h2>
 				
 				<div class="row d-flex flex-lg-row flex-column ">
-					<div class="col-12 col-lg-4 d-flex flex-column justify-content-center justify-content-lg-start pe-lg-5 mb-3 mb-lg-0">
+					<div class="col-12 sticky-lg-top col-lg-4 d-flex flex-column justify-content-center justify-content-lg-start pe-lg-5 mb-3 mb-lg-0 left__side">
 						
 						<form id="form" class="d-flex flex-column gap-3 mb-4" action="echo.htmlacademy.ru/courses">
-							<input class="form-control name__value" type="text" placeholder="name">
+							<input class="form-control name__value mt-3" type="text" placeholder="name">
 							<input class="form-control year__value" type="text" min="1900" max="2020" placeholder="year">
 							<input class="form-control rate__value" type="text" min="0" max="10" placeholder="rating">
 							<div class="input-group">
@@ -47,19 +47,15 @@
 							<button class="btn bg-primary text-white">Search</button>
 						</form>
 						<h2 class="">Bookmarked movies</h2>
-						<div class="border border-1 p-3 border-secondary border-opacity-50 rounded-top">
-							<p class="h5">Avenger: Infinity War <span class="fw-normal badge bg-danger py-2 d-block w-25 mt-2">Remove</span></p>
-						</div>						
-						<div class="border border-1 p-3 border-secondary border-opacity-50">
-							<p class="h5">The Avengers <span class="fw-normal badge bg-danger py-2 d-block w-25 mt-2">Remove</span></p>
-						</div>						
-						<div class="border border-1 p-3 border-secondary rounded-bottom border-opacity-50">
-							<p class="h5">12 Years a Slave <span class="fw-normal badge bg-danger py-2 d-block w-25 mt-2">Remove</span></p>
+						<div class="bookmarked__movies">
+							<div class="border border-1 p-3 border-secondary border-opacity-50 rounded-top">
+								<p class="h5">Avenger: Infinity War <span class="fw-normal badge bg-danger py-2 d-block w-25 mt-2">Remove</span></p>
+							</div>
 						</div>
 					</div>
 					
 					
-					<div class="col-12 col-lg-8 d-flex flex-column">
+					<div class="col-12 col-lg-8 d-flex right__side flex-column">
 						<h2 class="h4">Search results: <span id="results">0</span></h2>
 						<div class="alert alert-primary" role="alert">
 							Use the form on the left  to search for movie
@@ -126,12 +122,18 @@
 					<div class="d-flex justify-content-between">
 						<a href="#" class="btn btn-outline-primary movie__url">Watch trailer</a>
 						<button type="button" class="btn btn-outline-info more__info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">More info</button>
-						<button type="button" class="btn btn-outline-success">Bookmark</button>
+						<button type="button" class="bookmark btn btn-outline-success">Bookmark</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</template>  
+	<template id="bookmark__template">				
+		<div class="border border-1 p-3 border-secondary border-opacity-50">
+			<p class="h5 bookmark__title"></p>
+			<span class="fw-normal badge bg-danger py-2 d-block w-25 mt-2 bookmark__remove">Remove</span>
+		</div>
+	</template>
 	<script src="./js/bootstrap.js"></script>
 	<script src="./js/movies.js"></script>
 	<script src="./js/main.js"></script>
