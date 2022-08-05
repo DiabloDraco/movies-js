@@ -11,6 +11,7 @@ let fourthPage = document.querySelector("#fourth")
 let elBookmark = document.querySelector("#bookmark__template").content
 let bookmarkWrapper = document.querySelector(".bookmarked__movies")
 let elBookmarkButton = document.querySelector(".bookmark")
+let elBookmarkRemove = document.querySelector(".bookmark__remove")
 
 // Normalize array
 
@@ -239,14 +240,30 @@ elWrapper.addEventListener("click" , (event) => {
         elModalTitle.textContent = findedObject.title
         elModalDesc.textContent = findedObject.info
     }
+    let deleteArray = []
     if (currentBookmark) {
         let findedObject = newArray.find(function findedObject(item) {
             return item.id == currentBookmark
         })
         let template = elBookmark.cloneNode(true)
+        console.log(findedObject.title);
         let findTitle = findedObject.title
+        deleteArray.push(findedObject)
+        template.querySelector(".bookmark__num").classList.add(`${findedObject.id}`)
         template.querySelector(".bookmark__title").textContent = `${findTitle}`
+        template.querySelector(".bookmark__title").classList.add(`${findedObject.id}`)
+        template.querySelector(".bookmark__remove").dataset.removeId = findedObject.id
         bookmarkWrapper.appendChild(template)
         
+    }
+})
+
+bookmarkWrapper.addEventListener("click" , function (event) {
+    let currentRemove = event.target.dataset.removeId
+    console.log(currentRemove);
+    if (currentRemove) {
+        console.log(currentRemove);
+        let RemObject = document.querySelector(`.${currentRemove}`)
+        RemObject.innerHTML = null
     }
 })
