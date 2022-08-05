@@ -227,13 +227,13 @@ else {
 elWrapper.addEventListener("click" , (event) => {
     let currentCard = event.target.dataset.movieId
     if (currentCard) {
-        
+        console.log(currentCard);
         let elModalTitle = document.querySelector(".modal__title")
         let elModalDesc = document.querySelector(".modal__desc")
         let findedObject = newArray.find(function findedObject(item) {
-            return item.id = currentCard
+            return item.id == currentCard
         })
-        elModalTitle.textContent = `${findedObject.title}`
-        elModalDesc.textContent = `${findedObject.info}`
+        elModalTitle.textContent = findedObject.title
+        elModalDesc.textContent = findedObject.info
     }
 })
