@@ -246,7 +246,6 @@ elWrapper.addEventListener("click" , (event) => {
             return item.id == currentBookmark
         })
         let template = elBookmark.cloneNode(true)
-        console.log(findedObject.title);
         let findTitle = findedObject.title
         deleteArray.push(findedObject)
         template.querySelector(".bookmark__num").classList.add(`${findedObject.id}`)
@@ -260,10 +259,8 @@ elWrapper.addEventListener("click" , (event) => {
 
 bookmarkWrapper.addEventListener("click" , function (event) {
     let currentRemove = event.target.dataset.removeId
-    console.log(currentRemove);
     if (currentRemove) {
-        console.log(currentRemove);
         let RemObject = document.querySelector(`.${currentRemove}`)
-        RemObject.innerHTML = null
+        RemObject.remove()
     }
 })
