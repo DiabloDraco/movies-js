@@ -258,9 +258,8 @@ elWrapper.addEventListener("click" , (event) => {
             alert("Bookmark added successfully")
         }
         else{
-            alert("Bookmark deleted successfully")
+            alert("You already have this bookmark")
         }
-
     }
 })
 
@@ -273,5 +272,7 @@ bookmarkWrapper.addEventListener("click" , function (event) {
             currentRemove == deleteArray[i].id 
             deleteArray.splice(deleteArray[i] , 1 )
         }
+        alert("Bookmark deleted successfully")
+        
     }
 })
