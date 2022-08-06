@@ -228,6 +228,7 @@ else {
 }
 
 
+let deleteArray = []
 elWrapper.addEventListener("click" , (event) => {
     let currentCard = event.target.dataset.movieId
     let currentBookmark = event.target.dataset.bookmarkId
@@ -240,21 +241,27 @@ elWrapper.addEventListener("click" , (event) => {
         elModalTitle.textContent = findedObject.title
         elModalDesc.textContent = findedObject.info
     }
-    let deleteArray = []
     if (currentBookmark) {
         let findedObject = newArray.find(function findedObject(item) {
             return item.id == currentBookmark
         })
         let template = elBookmark.cloneNode(true)
-        let findTitle = findedObject.title
-        deleteArray.push(findedObject)
-        template.querySelector(".bookmark__num").classList.add(`${findedObject.id}`)
-        template.querySelector(".bookmark__title").textContent = `${findTitle}`
-        template.querySelector(".bookmark__title").classList.add(`${findedObject.id}`)
-        template.querySelector(".bookmark__remove").dataset.removeId = findedObject.id
-        bookmarkWrapper.appendChild(template)
-        
+        if (!deleteArray.find(function findalred(item) {
+            return item.id == currentBookmark
+        })) {
+            deleteArray.push(findedObject)
+            template.querySelector(".bookmark__num").classList.add(`${findedObject.id}`)
+            template.querySelector(".bookmark__title").textContent = `${findedObject.title}`
+            template.querySelector(".bookmark__title").classList.add(`${findedObject.id}`)
+            template.querySelector(".bookmark__remove").dataset.removeId = findedObject.id
+            bookmarkWrapper.appendChild(template)
+        }
+        else{
+            alert("Alredy Bookmarked")
+        }
+
     }
+    console.log(deleteArray);
 })
 
 bookmarkWrapper.addEventListener("click" , function (event) {

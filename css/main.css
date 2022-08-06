@@ -8,7 +8,7 @@
 }
 
 .bookmarked__movies {
-    overflow: scroll;
+    overflow-y: scroll;
     height: 200px;
 }
 .bookmarked__movies {
