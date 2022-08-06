@@ -261,7 +261,6 @@ elWrapper.addEventListener("click" , (event) => {
         }
 
     }
-    console.log(deleteArray);
 })
 
 bookmarkWrapper.addEventListener("click" , function (event) {
@@ -269,5 +268,9 @@ bookmarkWrapper.addEventListener("click" , function (event) {
     if (currentRemove) {
         let RemObject = document.querySelector(`.${currentRemove}`)
         RemObject.remove()
+        for (let i = 0; i < deleteArray.length; i++) {
+            currentRemove == deleteArray[i].id 
+            deleteArray.splice(deleteArray[i] , 1 )
+        }
     }
 })
