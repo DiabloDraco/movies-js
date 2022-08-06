@@ -72,7 +72,7 @@ var movies = [
     "summary": "Giga Genius",
     "ImageURL": "https://hydramovies.com/wp-content/uploads/2018/04/Re-Born-Movie-Poster.jpg",
     "imdb_id": "tt56781111",
-    "imdb_rating": 10,
+    "imdb_rating": 6,
     "runtime": 115,
     "language": "English",
     "ytid": "RyKZslyG8aU"
