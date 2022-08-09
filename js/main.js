@@ -255,7 +255,6 @@ elWrapper.addEventListener("click" , (event) => {
             template.querySelector(".bookmark__title").classList.add(`${findedObject.id}`)
             template.querySelector(".bookmark__remove").dataset.removeId = findedObject.id
             bookmarkWrapper.appendChild(template)
-            alert("Bookmark added successfully")
         }
         else{
             alert("You already have this bookmark")
