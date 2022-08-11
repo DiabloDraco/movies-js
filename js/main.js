@@ -12,7 +12,7 @@ let elBookmark = document.querySelector("#bookmark__template").content
 let bookmarkWrapper = document.querySelector(".bookmarked__movies")
 let elBookmarkButton = document.querySelector(".bookmark")
 let elBookmarkRemove = document.querySelector(".bookmark__remove")
-let elPaginationWrapper = document.querySelector("#pageWrapper")
+let elButtonsWrapper = document.querySelector("#pageWrapper")
 let itemsPerPage = 10
 // Normalize array
 
@@ -52,7 +52,7 @@ function render(array , wrapper) {
 }
 
 render(newArray.slice(0 , 10) , elWrapper)
-renderPageBtns(newArray)
+renderButtons(newArray)
 // Find categories
 
 function findCategories(array) {
@@ -137,7 +137,7 @@ elForm.addEventListener("submit" , (evt)=>{
     }
     
     render(filteredArray.slice(0 , 10) , elWrapper)
-    renderPageBtns(filteredArray)
+    renderButtons(filteredArray)
     ar = filteredArray
 })
 
@@ -193,8 +193,8 @@ bookmarkWrapper.addEventListener("click" , function (event) {
 
   
 
-function renderPageBtns(array) {
-    elPaginationWrapper.innerHTML = null
+function renderButtons(array) {
+    elButtonsWrapper.innerHTML = null
     pages = Math.ceil(array.length / itemsPerPage)
     
     let newFragment = document.createDocumentFragment();
@@ -207,16 +207,15 @@ function renderPageBtns(array) {
         newFragment.appendChild(newLi);
     }
     
-    elPaginationWrapper.appendChild(newFragment);
+    elButtonsWrapper.appendChild(newFragment);
 }
 
 function sliceMoviesByPages(array, page) {
     let slicedArray = array.slice((page-1) * itemsPerPage, itemsPerPage * page);
-    console.log(slicedArray);
     return slicedArray
 }
 
-elPaginationWrapper.addEventListener("click", function(evt) {
+elButtonsWrapper.addEventListener("click", function(evt) {
     let currentPage = evt.target.dataset.pageNumber
 
     let slicedmovies = sliceMoviesByPages(newArray, currentPage)
