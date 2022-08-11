@@ -12,7 +12,8 @@ let elBookmark = document.querySelector("#bookmark__template").content
 let bookmarkWrapper = document.querySelector(".bookmarked__movies")
 let elBookmarkButton = document.querySelector(".bookmark")
 let elBookmarkRemove = document.querySelector(".bookmark__remove")
-
+let elPaginationWrapper = document.querySelector("#pageWrapper")
+let itemsPerPage = 10
 // Normalize array
 
 let newArray = elMovies.map((item)=> {
@@ -50,8 +51,8 @@ function render(array , wrapper) {
     wrapper.appendChild(fragment)
 }
 
-render(newArray , elWrapper)
-
+render(newArray.slice(0 , 10) , elWrapper)
+renderPageBtns(newArray)
 // Find categories
 
 function findCategories(array) {
@@ -136,96 +137,11 @@ elForm.addEventListener("submit" , (evt)=>{
     }
     
     render(filteredArray.slice(0 , 10) , elWrapper)
+    renderPageBtns(filteredArray)
     ar = filteredArray
 })
 
 
-if (ar != []) {
-    // Page layout
-    firstPage.addEventListener("click" ,()=> {
-        
-        filteredArray = ar.slice(0 , 10);
-        firstPage.classList.add("active")
-        secondPage.classList.remove("active")
-        fourthPage.classList.remove("active")
-        thirdPage.classList.remove("active")
-        
-        render(filteredArray , elWrapper)
-    })
-    
-    secondPage.addEventListener("click" ,()=> {
-        
-        firstPage.classList.remove("active")
-        secondPage.classList.add("active")
-        fourthPage.classList.remove("active")
-        thirdPage.classList.remove("active")
-        filteredArray = ar.slice(10 , 20); 
-        render(filteredArray , elWrapper)
-    })
-    
-    thirdPage.addEventListener("click" ,()=> {
-        
-        firstPage.classList.remove("active")
-        secondPage.classList.remove("active")
-        fourthPage.classList.remove("active")
-        thirdPage.classList.add("active")
-        filteredArray = ar.slice(20 , 30);
-        render(filteredArray , elWrapper)
-    })
-    
-    fourthPage.addEventListener("click" ,()=> {
-        
-        firstPage.classList.remove("active")
-        secondPage.classList.remove("active")
-        fourthPage.classList.add("active")
-        thirdPage.classList.remove("active")
-        filteredArray = ar.slice(30 , 40);
-        render(filteredArray , elWrapper)
-    })
-}
-else {
-    // Page layout
-    firstPage.addEventListener("click" ,()=> {
-        
-        elMovies = newArray.slice(0 , 10);
-        firstPage.classList.add("active")
-        secondPage.classList.remove("active")
-        fourthPage.classList.remove("active")
-        thirdPage.classList.remove("active")
-        
-        render(elMovies , elWrapper)
-    })
-    
-    secondPage.addEventListener("click" ,()=> {
-        
-        firstPage.classList.remove("active")
-        secondPage.classList.add("active")
-        fourthPage.classList.remove("active")
-        thirdPage.classList.remove("active")
-        elMovies = newArray.slice(10 , 20); 
-        render(elMovies , elWrapper)
-    })
-    
-    thirdPage.addEventListener("click" ,()=> {
-        
-        firstPage.classList.remove("active")
-        secondPage.classList.remove("active")
-        fourthPage.classList.remove("active")
-        thirdPage.classList.add("active")
-        elMovies = newArray.slice(20 , 30);
-        render(elMovies , elWrapper)
-    })
-    
-    fourthPage.addEventListener("click" ,()=> {
-        
-        firstPage.classList.remove("active")
-        secondPage.classList.remove("active")
-        fourthPage.classList.add("active")
-        thirdPage.classList.remove("active")
-        elMovies = newArray.slice(30 , 40);
-        render(elMovies , elWrapper)
-    })
-}
 
 
 let deleteArray = []
@@ -271,7 +187,39 @@ bookmarkWrapper.addEventListener("click" , function (event) {
             currentRemove == deleteArray[i].id 
             deleteArray.splice(deleteArray[i] , 1 )
         }
-        alert("Bookmark deleted successfully")
         
     }
+})
+
+  
+
+function renderPageBtns(array) {
+    elPaginationWrapper.innerHTML = null
+    pages = Math.ceil(array.length / itemsPerPage)
+    
+    let newFragment = document.createDocumentFragment();
+    
+    for (let i = 1; i <= pages; i++) {
+        let newLi = document.createElement("li");
+        newLi.textContent = i.toString();
+        newLi.dataset.pageNumber = i.toString();
+        newLi.setAttribute("class", "page-item page-link");
+        newFragment.appendChild(newLi);
+    }
+    
+    elPaginationWrapper.appendChild(newFragment);
+}
+
+function sliceMoviesByPages(array, page) {
+    let slicedArray = array.slice((page-1) * itemsPerPage, itemsPerPage * page);
+    console.log(slicedArray);
+    return slicedArray
+}
+
+elPaginationWrapper.addEventListener("click", function(evt) {
+    let currentPage = evt.target.dataset.pageNumber
+
+    let slicedmovies = sliceMoviesByPages(newArray, currentPage)
+
+    render(slicedmovies , elWrapper)
 })
