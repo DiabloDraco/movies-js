@@ -29,12 +29,10 @@ let newArray = elMovies.map((item)=> {
     }
 })
 
-
 // Render array
 
 function render(array , wrapper) {
     elWrapper.textContent = null
-    elResult.textContent = array.length
     let fragment = document.createDocumentFragment()
     for (const item of array) {
         let template = elTemplate.cloneNode(true)
@@ -52,6 +50,7 @@ function render(array , wrapper) {
 }
 
 render(newArray.slice(0 , 10) , elWrapper)
+elResult.textContent = newArray.slice(0 , 10).length
 renderButtons(newArray)
 // Find categories
 
@@ -137,6 +136,7 @@ elForm.addEventListener("submit" , (evt)=>{
     }
     
     render(filteredArray.slice(0 , 10) , elWrapper)
+    elResult.textContent = filteredArray.length
     renderButtons(filteredArray)
     ar = filteredArray
 })
@@ -191,7 +191,7 @@ bookmarkWrapper.addEventListener("click" , function (event) {
     }
 })
 
-  
+
 
 function renderButtons(array) {
     elButtonsWrapper.innerHTML = null
@@ -217,8 +217,8 @@ function sliceMoviesByPages(array, page) {
 
 elButtonsWrapper.addEventListener("click", function(evt) {
     let currentPage = evt.target.dataset.pageNumber
-
+    
     let slicedmovies = sliceMoviesByPages(newArray, currentPage)
-
+    
     render(slicedmovies , elWrapper)
 })
